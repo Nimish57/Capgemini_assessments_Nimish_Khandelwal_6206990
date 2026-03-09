@@ -8,7 +8,7 @@ test('task2',async({page})=>{
   const searching=page.locator('//input[@name="q"]').first();
   await searching.fill('shoes');
   await searching.press('Enter');
-  const womens=page.locator('//a[contains(translate(text(),"WOMEN","women"),"women")]');
+  const womens=page.locator('//a[contains(text(),"Women") or contains(text(),"WOMEN") or contains(text(),"women")]');
   await expect(womens.first()).toBeVisible();
   const count=await womens.count();
   await expect(count).toBeGreaterThan(0);
